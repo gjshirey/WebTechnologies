@@ -1,0 +1,53 @@
+Spread operator and Rest paramenter
+...
+
+Copy Arrays
+    const veggie = ["Tomato", "Cucumber", "Beans"]
+    const newVeggie = veggie;
+    ^^^
+    Does NOT create a new array, just makes a reference
+    DO THIS FOR COPYING
+
+    const newVieggie = [].concat(veggie)
+
+Spread into a function:
+    function doStuff (x,y,z){
+        console.log(x+y+z);
+    }
+    var args = [0, 1, 2]
+
+    doStuff(...args)
+
+    out:
+    // 3
+
+Example 2
+    const name = ["Galen", "Shirey"]
+
+    function greet (first, last) {
+        console.log('Hello ${first} ${last})
+    }
+
+    greet(...name)
+
+    // Hello Galen Shirey
+
+What if there are 3 things in the array and only two arguments allowed?
+    const name = ["Galen", "Shirey", "Joseph"]
+
+    function greet (first, last) {
+        console.log('Hello ${first} ${last})
+    }
+
+    greet(...name)
+        --GETS IGNORED--
+    // Hello Galen Shirey
+
+---
+
+Rest Operator
+Const runners = ["Tom", "Paul", "Mark", "Luke"]
+const [first, second, ...losers] = runners;
+
+console.log(...losers);
+//Mark Luke
