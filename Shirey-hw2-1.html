@@ -35,7 +35,7 @@ Purpose:        Displays output of people's names and ages in an
             // for each element in array people
             // concatinate template literal to person and send to id=output
             for(let element of people){
-                person = person + `<div><p> ${element.name} is ${element.age} years old</p></div>`
+                person = person + `<div><p> - ${element.name} is ${element.age} years old</p></div> `
                 document.getElementById("output").innerHTML = person;
             }
         </script>
