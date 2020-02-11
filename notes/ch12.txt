@@ -1,0 +1,92 @@
+Chapter 12 - Classes
+
+Classes are primarilty sytactical sugar over JS's existing prototype-based inheritance. 
+The class syntax does not introduce a new objectoriented inheritance model to javascript
+
+extends keyword is javascripts form of inheritance.
+Only works through prototype
+prototyple inheritance
+
+for example:
+    a rabbit class can inherit methods from animal by using the extends keyword
+
+    class animal {
+        constructor(name){
+            this.speed = 0
+            this.name = name
+        }
+        run(speed)
+        this.speed = speed
+
+
+    }
+
+    class rabbit extends animal {
+
+    }
+
+Methods can be overwritten 
+super can be used to use parent method
+
+*********
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+Person.prototype.greet = function(){
+  console.log("Hello, my name is " + this.name);
+}
+
+const alberto = new Person("Alberto", 26);
+const galen = new Person("Galen", 23);
+
+alberto.greet()
+galen.greet()
+
+*********
+Static methods can only be accessed when referencing the class itself
+
+class Person {
+  constructor(name,age){
+    this.name = name
+    this.age = age
+  }
+  static info(){
+    console.log("This is a person class, It's constructors are name,age")
+  }
+}
+
+const galen = new Person("Galen", 23);
+
+Person.info()
+
+
+galen.info() // ERROR
+
+
+*********
+Super must be used here
+*********
+
+class Person {
+  constructor(name,age){
+    this.name = name
+    this.age = age
+  }
+  greet(){
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old`);
+  }
+}
+
+class Adult extends Person{
+  constructor(name,age,work){
+    super(name, age);
+    this.work = work;
+  }
+}
+
+const galen = new Adult("Galen", 22, "Lowes");
+
+galen.greet()
