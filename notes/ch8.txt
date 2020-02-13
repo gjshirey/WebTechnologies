@@ -36,7 +36,7 @@ provided testing function, Otherwise undefined is returned
 
 const array = [1,2,3,4,5]
 
-let found = Array.find(e => e > 3)
+let found = array.find(e => e > 3)
 console.log(found);
 // 4
 
