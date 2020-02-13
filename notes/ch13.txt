@@ -1,0 +1,109 @@
+Two possible states from a promise
+- completion
+- failure
+    - and its resulting value
+
+const data = fetch('api url goes here)
+console.log('Finished')
+console.log(data)
+
+Need to use a Callback function to handle the asyncronous nature of JavaScript
+
+
+function first(){
+    console.log(1);
+}
+
+function second(){
+    console.log(2);
+}
+
+first();
+second();
+
+//1
+//2
+
+Now what if first() needs to call an API for second() to execute
+
+function first(){
+    setTimeout(function(){
+        console.log(1);
+    }, 500)
+}
+
+function second(){
+    console.log(2);
+}
+
+first();
+second();
+
+//2
+//1
+
+---------------------
+function doHomework(subject, callback){
+  console.log(`Starting my ${subject} homework.`);
+  callback()
+}
+
+
+function homeworkFinished(){
+  console.log("homework finished")
+}
+
+doHomework('math', homeworkFinished)
+---
+callbacks are used as a arguement, the output of this is below:
+//"Starting my math homework."
+//"homework finished"
+
+******************************
+PROMISES
+
+const myPromise = new Promise((resolve,reject)=>{
+  setTimeout(() => {
+    resolve("The value we get from the promise");
+  }, 2000)
+})
+
+myPromise.then(data => {
+  console.log(data);
+})
+.catch(err => {
+  console.log("error")
+})
+
+*****************************
+
+You can chain promises... of course this will need a bit of planning
+
+Chain with more than one '.then'
+
+
+const myPromise = new Promise((resolve,reject)=>{
+  setTimeout(() => {
+    resolve("The value we get from the promise");
+  }, 2000)
+})
+
+myPromise.then(data => {
+  console.log(data);
+})
+.then(data => {
+  console.log("then number two")
+})
+.then(data =>{
+  console.log("then number three")
+})
+.then(data => {
+  doSomething()
+})
+.catch(err => {
+  console.log(err.message)
+})
+
+
+function doSomething(){
+  console.log("DO SOMETHING")
