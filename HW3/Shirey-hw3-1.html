@@ -8,17 +8,45 @@ Due Date:       February 18, 2020
 Course:         CSC 342 - Web Technologies
 Assignment:     HW3-1     
 Filename:       Shirey-hw3-1.txt
-Purpose:        
+Purpose:        Write a function called displayFullInfo which accepts an 
+                object and returns the string "Your full name is" 
+                concatenated with the value of the first name, last name, 
+                and the person’s age using destructuring
 ----------------------------------------------------------------------->
 
 <head>
     <title>Homework 3-1</title>
-
-
 </head>
 
-<body>
+<h1 id=output>Does it really matter what i put here?</h1>
+<!--Doesn't seem like it-->
 
+<body>
+    <script>
+        //Person Object - me
+        const person = {
+            first: 'Galen',
+            last: 'Shirey',
+            age: 23,
+        }
+
+        //-----------------------------------------------------------------------------------------
+        //  Function: displayFullInfo(person)
+        //  Desc: accepts an object and concatenates it into a sentence that is returned
+        //  Return Value: string - the string "Your full name is" concatenated 
+        //        with the value of the first name, last name, and the person’s age
+        //-----------------------------------------------------------------------------------------
+        function displayFullInfo(person) {
+            const { first, last, age } = person //destructuring
+            return `Your full name is ${first} ${last} and you are ${age} years old`
+        }
+
+        //string returned by funtion given person object
+        const markup = displayFullInfo(person);
+
+        //display to webpage using id"output" (h1)
+        document.getElementById("output").innerHTML = markup;
+    </script>
 </body>
 
 </html>

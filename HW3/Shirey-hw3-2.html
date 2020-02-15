@@ -8,17 +8,42 @@ Due Date:       February 18, 2020
 Course:         CSC 342 - Web Technologies
 Assignment:     HW3-2     
 Filename:       Shirey-hw3-2.txt
-Purpose:        
+Purpose:        write a HTML page that includes both CSS and JavaScript 
+                to print the properties of the car object.  
+                You must use the ES6 Object.entries to retrieve the 
+                key/value pairs from the car object. Display the 
+                output as an unordered list.
 ----------------------------------------------------------------------->
 
 <head>
     <title>Homework 3-2</title>
-
-
 </head>
 
-<body>
+<ul id=markup>list</ul>
 
+<body>
+    <script>
+
+        //list markup to allow scalability to object
+        let markup = "<ul>"
+        //object literal - car
+        const car = {
+            make: "McLaren",
+            color: "blue",
+            year: "2020",
+        }
+
+        //could change to function to allow any object to be passed in
+        for (const x of Object.entries(car)) {
+            markup += '<li>'
+            markup += `${x[0]}: ${x[1]}`
+            markup += '</li>'
+        }
+        //complete unordered list
+        markup += `</ul>`
+        //output to markup
+        document.getElementById("markup").innerHTML = markup
+    </script>
 </body>
 
 </html>
