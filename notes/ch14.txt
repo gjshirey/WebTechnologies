@@ -1,0 +1,54 @@
+-------------------GENERATORS----------------------
+
+function* fruitList(){
+  yield 'banana'
+  yield 'apple'
+  yield 'orange'
+  yield (2+1)*24
+}
+
+const fruits = fruitList();
+
+console.log(fruits.next())
+console.log(fruits.next())
+console.log(fruits.next())
+console.log(fruits.next())
+console.log(fruits.next())
+
+----------------------------------------------------
+
+function* gen(){
+  try{
+    yield "Trying..."
+    yield "Trying Harder..."
+    yield "Trying even harder..."
+  }
+  catch(err){
+    console.log("Error: Error Error Error")
+  }
+}
+
+const myGenerator = gen()
+
+console.log(myGenerator.next().value)
+console.log(myGenerator.next().value)
+console.log(myGenerator.next().value)
+myGenerator.throw(Error)
+
+-------------GENERATORS + PROMISE----------------------
+
+const myPromise = () => new Promise((resolve) => {
+  resolve("our value is...");
+});
+
+function* gen() {
+  let result = "";
+  yield myPromise().then(data => {result = data})
+  yield result + ' 2'
+}
+
+const asyncFun = gen()
+console.log(asyncFun.next())
+setTimeout(()=>console.log(asyncFun.next()), 3000)
+
+----------------------------------------------------
