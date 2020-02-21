@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<!---------------------------------------------------------------------
+Author:         Galen Shirey
+Major:          CS:SD
+Creation Date:  February 21, 2020
+Due Date:       February 25, 2020
+Course:         CSC 342 - Web Technologies
+Assignment:     HW4    
+Filename:       Shirey-hw4.txt
+Purpose:        Create an adult class that extends the Person class
+                then call the methods created in both Adult and Person
+                and display to screen
+----------------------------------------------------------------------->
+
+<head>
+    <title>Homework 4</title>
+</head>
+<style>
+    div {
+        background-color: rgb(242, 249, 250);
+        width: 200;
+        border: 5px solid red;
+        padding: 40px;
+        margin: 20px;
+    }
+</style>
+
+<body>
+    <div id=greet>greet</div>
+    <div id=goodbye>goodbye</div>
+    <script>
+
+        //empty Variables
+        let greet = " "
+        let goodbye = " "
+
+        //-------------------------------------------------------------
+        //Class:    Person
+        //Data:     Name: Name of person
+        //          Age: Age of person
+        //Methods:  greet() - Assigns a greeting to the greet variable
+        //-------------------------------------------------------------
+        class Person {
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+            greet() {
+                console.log(`Hello, my name is ${this.name} and I am ${this.age} years old`)
+                greet = `Hello, my name is ${this.name} and I am ${this.age} years old`
+            }
+        }
+
+        //-------------------------------------------------------------
+        //Class:    Adult -> Person
+        //Data:     Name: Name of person
+        //          Age: Age of person
+        //          work: Job Title
+        //Methods:  GoodBye() - Assigns a fairwell message to 
+        //                      the goodbye variable
+        //-------------------------------------------------------------
+        class Adult extends Person {
+            constructor(name, age, work) {
+                super(name, age)
+                this.work = work
+            }
+            GoodBye() {
+                console.log(`Also, I am a ${this.work}, Gotta go! Bye!`)
+                goodbye = `Also, I am a ${this.work}, Gotta go! Bye!`
+            }
+        }
+
+        //Create new adult
+        const adult = new Adult("Galen Shirey", 23, "Software Developer")
+
+        //call availble methods
+        //Without Doing this, Nothing will display on screen
+        adult.greet()
+        adult.GoodBye()
+
+        //link to html
+        document.getElementById("greet").innerHTML = greet
+        document.getElementById("goodbye").innerHTML = goodbye
+    </script>
+</body>
+
+</html>
