@@ -16,19 +16,24 @@ Purpose:        Create an adult class that extends the Person class
 <head>
     <title>Homework 4</title>
 </head>
+
+<!--CSS-->
 <style>
     div {
         background-color: rgb(242, 249, 250);
-        width: 200;
+        width: 50%;
+        height: 125px;
+        margin: auto;
         border: 5px solid red;
         padding: 40px;
         margin: 20px;
+        box-sizing: border-box;
     }
 </style>
 
 <body>
-    <div id=greet>greet</div>
-    <div id=goodbye>goodbye</div>
+    <h1 style="color: red; width: 50%;text-align: center;">CSC342-Spring, 2020 HW #4</h1>
+    <div id=greetGoodbye>greetGoodbye</div>
     <script>
 
         //empty Variables
@@ -48,7 +53,7 @@ Purpose:        Create an adult class that extends the Person class
             }
             greet() {
                 console.log(`Hello, my name is ${this.name} and I am ${this.age} years old`)
-                greet = `Hello, my name is ${this.name} and I am ${this.age} years old`
+                greet = `Hello, my name is ${this.name} and I am ${this.age} years old.`
             }
         }
 
@@ -80,8 +85,8 @@ Purpose:        Create an adult class that extends the Person class
         adult.GoodBye()
 
         //link to html
-        document.getElementById("greet").innerHTML = greet
-        document.getElementById("goodbye").innerHTML = goodbye
+        document.getElementById("greetGoodbye").innerHTML = greet + '<br>' + goodbye
+
     </script>
 </body>
 
